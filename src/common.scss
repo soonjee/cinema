@@ -1,0 +1,121 @@
+/*
+-------------------------------------
+font
+--------------------------------------
+*/
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+
+/*
+-------------------------------------
+reset
+--------------------------------------
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    line-height: 1;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    background: #000;
+    color: #f7f7f7;
+}
+
+img {
+    max-width: 100%; // 해줘야 스크롤바 안생김
+    margin-bottom: 20px;
+}
+
+.inner {
+    width: 1600px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.Header {
+    line-height: 100px;
+
+    h1 {
+        width: 150px;
+        font-size: 0;
+    }
+
+    .flex {}
+}
+
+.List {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0 30px;
+    padding: 50px 100px;
+
+    .movie_info {
+        font-size: 21px;
+    }
+}
+
+.Main {
+    position: relative;
+
+    .arrows i {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        padding: 20px;
+        background: rgba(0, 0, 0, 0.3);
+        font-size: 30px;
+        color: #f7f7f7;
+    }
+
+    .itm {
+        position: relative;
+
+        .case {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 30px;
+
+            .genre {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                li {
+                    padding: 5px 10px;
+                    background: #f00;
+                    color: #f7f7f7;
+                    border-radius: 2px;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+
+    .title {}
+
+    .grade {}
+}

@@ -2,6 +2,8 @@ OMDb
 TMDB 
 YTS.MX
 외부데이터를 끌어와 map돌리면서 뽑아쓰면 됨
+
+https://yts.mx/api#list_movies
 ――――――――――――――[ 영화관 api 써서 사이트 만들기 ]――――――――――――――
 
 준비 )) 
@@ -27,6 +29,74 @@ YTS.MX
 
 후 
 npm run deploy
+
+
+8.
+const List = () => {
+    //데이터 가져오기
+    const [movie, getMovie] = useState([]);
+    const movieDate = async () => {
+        const movie = await axios.get('https://yts.mx/api/v2/list_movies.json');
+        console.log(movie.data.data.movies);  *←처음 axios를 불러올땐 객체로들만 불러오는데(movie) 그 안에 data 영화데이터를 불러오려면 (movie.data.data.movies); 이렇게 불러와야 함. 첫 data는 axios꺼 두번째 data는 movies를 품고있는 상위폴더같은 것*
+    }
+    useEffect(() => {
+        movieDate()
+    }, [])
+    return (
+        <div>
+            List
+        </div>
+    )
+}
+
+
+9. 로딩중 만들기
+   - 1. 변수 생성
+    const [load, setLoad] = useState(true);
+        setLoad(false);
+
+   - 2. 변수 놓아서 뿌리기
+<div>
+            {
+                load ? <div>기다리슈...</div>
+                    : // 아니면 뿌려라.
+                    <ul>
+                        {
+                            movie.map(it => {
+                                return (
+                                    <li>{it.id}</li>
+                                )
+                            })
+                        }
+                    </ul>
+            }
+        </div>
+
+
+
+10. 데이터 갯수와 장르 설정하기
+
+https://yts.mx/api#list_movies
+https://www.imdb.com/feature/genre/ 을 참고하기
+
+const movie = await axios.get('https://yts.mx/api/v2/list_movies.json?limit=50&genre=Fantasy');
+
+-----------------------------------
+?limit=50 갯수 제한,
+&genre=Action 장르 중 액션으로 설정
+-----------------------------------
+App.js에 장르별로 뿌려줌
+
+<div>
+            <List genre='War' limit={20} />
+            <List genre='Horror' limit={20} />
+            <List genre='Animation' limit={10} />
+        </div>
+
+
+11. 장르별 List 라우터 만들어 페이지관리 들어감.
+(Tip★
+ alt 누르고 커서 놓으면 여러개 수정가능)
 
 
 ―――――――――――――――[ HTTPS 무료 호스팅 사이트 ]―――――――――――――――
