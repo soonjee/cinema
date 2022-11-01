@@ -1,0 +1,36 @@
+OMDb
+TMDB 
+YTS.MX
+외부데이터를 끌어와 map돌리면서 뽑아쓰면 됨
+――――――――――――――[ 영화관 api 써서 사이트 만들기 ]――――――――――――――
+
+준비 )) 
+1. 깃 레지파토리 판다.
+2. 폴더 생성 후 그 안에 power shall 열어서 리엑트를 설치한다.
+ npx create-react-app .  
+
+3. code . (vscode 여는 명령어)
+((오늘 수업에선 github에 배포할 예정임))
+
+4. 기초 json 세팅
+ npm i react-router-dom sass gh-pages axios
+ npm install react-slick --save
+ npm install slick-carousel
+
+5. 폴더정리 (index파일 뺴고 다 지우고 불필요한 코드 지우기)
+6.src폴더에 App.js 만들기
+
+7. json에서 배포준비하기 
+"homepage": "https://나의깃주소/", 넣고 
+"predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+
+후 
+npm run deploy
+
+
+―――――――――――――――[ HTTPS 무료 호스팅 사이트 ]―――――――――――――――
+
+[ 넷리파이 ] https://www.netlify.com/
+
+ 
